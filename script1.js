@@ -1225,7 +1225,7 @@
             $2(brandElement).attr("style", fullScreen ? "display: none !important;" : "");
           }
           function createBadge() {
-            var $brand = $2('<a class="w-webflow-badge"></a>').attr("href", "");
+            var $brand = $2('').attr("href", "");
             var $logoArt = $2("<img>").attr("src", "").attr("alt", "").css({
               marginRight: "8px",
               width: "16px"

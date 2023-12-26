@@ -4157,6 +4157,7 @@ html {
   
   .footer-brand.w--current {
     margin-bottom: 10px;
+    background-color: transparent;
   }
   
   .footer-block {
@@ -4621,7 +4622,7 @@ html {
   }
   
   .dropdown-list {
-    width: 200px;
+    width: 400px;
     color: #18100f;
     background-color: #fff;
     border: 1px solid #2490eb;
