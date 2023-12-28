@@ -93,44 +93,46 @@
         <div class="container w-container">
             <div class="w-layout-grid grid-contact-form">
                 <div id="w-node-_7975c9fb-e4ca-015a-fe7f-46d7b743d6c0-81c80a6b" class="contact-page-from">
-                    <h2 class="contact-page-from-title">Get in Touch</h2>
+                    <h2 id="my-form-status" class="contact-page-from-title">Get in Touch</h2>
                     <div class="appointment-form w-form">
-                        <form data-name="Email Form" name="email-form" id="email-form" method="get" class="form"
-                            data-wf-page-id="638d97acdd44de3681c80a6b"
-                            data-wf-element-id="7975c9fb-e4ca-015a-fe7f-46d7b743d6c4">
-                            <div class="field-block"><input type="text" class="text-input w-input" maxlength="256"
-                                    name="Full-Name" data-name="Full Name" placeholder="Full Name*" id="Full-Name"
-                                    required="" /></div>
-                            <div class="field-block"><input type="email" class="text-input w-input" maxlength="256"
-                                    name="Your-Email" data-name="Your Email" placeholder="Your Email" id="Your-Email"
-                                    required="" /></div>
-                            <div class="field-block"><select data-name="Category 2" name="Category-2" required=""
-                                    id="field" class="form-dropdown w-select">
+                        <form id="my-form" data-email="info@apoyohs.com" action="https://script.google.com/macros/s/AKfycbwg2rSpatHAObpLMoc5frNWwSkWB6taJCzwwo8h/exec" method="POST" class="form" data-wf-page-id="63776b80dbdca40c58a96c09" data-wf-element-id="5f391716-65c6-d005-69da-8fc4d16ddc98">
+                           
+                            <div class="field-block">
+                                <input type="text" class="text-input w-input" maxlength="256" name="Full-Name" data-name="Full Name" placeholder="Full Name*" id="Full-Name" required="" />
+                            </div>
+                            <div class="field-block">
+                                <input type="email" class="text-input w-input" maxlength="256" name="Your-Email" data-name="Your Email" placeholder="Your Email" id="Your-Email" required="" />
+                            </div>
+                            <div class="field-block"><select data-name="Category 2" name="Category-2" required="" id="field" class="form-dropdown w-select">
                                     <option value="">Select one...</option>
-                                    <option value="Revenue Cycle Optimization">Revenue Cycle Optimization</option>
+                                    <option value="Revenue Cycle Management">Revenue Cycle Optimization</option>
                                     <option value="Auditing Service">Auditing Service</option>
                                     <option value="Practice Consulting">Practice Consulting</option>
                                     <option value="Insurance Verification">Insurance Verification</option>
-                                    <option value="Coding Service">Coding</option>
-                                    <option value="Authorization / Referral">Authorization / Referral</option>
-                                </select></div>
-                            <div class="field-block"><input type="number" class="text-input w-input" maxlength="256"
-                                    name="Phone-Number" data-name="Phone Number" placeholder="Phone Number"
-                                    id="Phone-Number" /></div>
-                            <div class="field-block">
-                                <textarea placeholder="Additional information" maxlength="5000"
-                                    data-name="Additional information" name="Additional-information"
-                                    id="Additional-information" class="text-input form w-input">
-                                </textarea>
+                                    <option value="Coding">Coding</option>
+                                    <option value="Authorization">Authorization/Referral</option>
+                                </select>
                             </div>
-                            <input type="submit" value="Make an Appointment" data-wait="Please wait..."
-                                class="button w-button" />
+                            <div class="field-block">
+                                <input type="number" class="text-input w-input" maxlength="256" name="Phone-Number" data-name="Phone Number" placeholder="Phone Number" id="Phone-Number" />
+                            </div>
+                            <div class="field-block">
+                                <textarea placeholder="Additional information" maxlength="5000" data-name="Additional information" name="Additional-information" id="Additional-information" class="text-input form w-input"></textarea>
+                            </div>
+
+                            <button type="submit" id="my-form-button" data-w-id="cf1ec272-e99d-1a8b-3b85-e5d3c2a9a1eb" style="opacity: 1;" class="button w-button">
+                                Submit<span class="button-overlay dark-button-overlay" style="width: 0%;"> </span>
+                            </button>
+                            <!--<button type="submit" id="my-form-button" style="width: 50%; background-color: #2aaff0; color: white; padding: 14px 20px; margin: 8px 0; border: none; border-radius: 4px; cursor: pointer;">Submit</button>-->
                         </form>
-                        <div class="form-success w-form-done">
-                            <div>Thank you! Your message has been received!</div>
-                        </div>
-                        <div class="form-error w-form-fail">
-                            <div>Oops! Something went wrong. Please fill in the required fields and try again.</div>
+                        <h3 id="my-form-status"></h3>
+                        <!-- <div class="success-message w-form-done">
+                            <div>
+                                <h3 id="my-form-status"></h3>
+                            </div>
+                        </div> -->
+                        <div class="error-message w-form-fail">
+                            <div>Oops! Something went wrong while submitting the form.</div>
                         </div>
                     </div>
                 </div>
@@ -325,6 +327,65 @@
         type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
         crossorigin="anonymous"></script>
     <script src="./script1.js" type="text/javascript"></script>
-</body>
+
+    <script>
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+
+            // get the form elements defined in your form HTML above
+
+            var form = document.getElementById("my-form");
+            var button = document.getElementById("my-form-button");
+            var status = document.getElementById("my-form-status");
+
+            // Success and Error functions for after the form is submitted
+
+            function success() {
+                form.reset();
+                form.style = "display: none";
+                button.style = "display: none";
+                status.innerHTML = "Thank you. We will get back to you shortly.";
+            }
+
+            function error() {
+                status.innerHTML = "Oops! There was a problem. Try Again.";
+            }
+
+            // handle the form submission event
+
+            form.addEventListener("submit", function (ev) {
+                ev.preventDefault();
+                var data = new FormData(form);
+                ajax(form.method, form.action, data, success, error);
+            });
+        });
+
+        // helper function for sending an AJAX request
+
+        function ajax(method, url, data, success, error) {
+            var xhr = new XMLHttpRequest();
+            xhr.open(method, url);
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== XMLHttpRequest.DONE) return;
+                if (xhr.status === 200) {
+                    success(xhr.response, xhr.responseType);
+                } else {
+                    error(xhr.status, xhr.response, xhr.responseType);
+                }
+            };
+            xhr.send(data);
+        }
+    </script>
+   
+    </body>
 
 </html>
